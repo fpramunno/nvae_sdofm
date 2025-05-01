@@ -21,7 +21,7 @@ experiment:
   seed: 0
   disable_cuda: false
   wandb:
-    enable: true
+    enable: false # TODO CHANGE TO TRUE
     entity: "fdlx"
     group: "sdofm-phase1"
     job_type: "pretrain"
@@ -30,7 +30,7 @@ experiment:
     output_directory: "wandb_output"
     log_model: "all" # can be True (final checkpoint), False (no checkpointing), or "all" (for all epoches)
   gcp_storage: # this will checkpoint all epoches, perhaps clean up this config
-    enabled: true
+    enabled: false # TODO CHANGE TO TRUE
     bucket: "sdofm-checkpoints"
   fold: null
   evaluate: false     # skip training and only evaluate (requires checkpoint to be set)
@@ -42,7 +42,7 @@ experiment:
   accelerator: "auto"  # options are "auto", "gpu", "tpu", "ipu", or "cpu"
   profiler: null #'XLAProfiler' # 'XLAProfiler' # options are XLAProfiler/PyTorchProfiler Warning: XLA for TPUs only works on single world size
   distributed:
-    enabled: true
+    enabled: false # TODO CHANGE TO TRUE
     world_size: 1 # The "auto" option recognizes the machine you are on, and selects the appropriate number of accelerators.
     strategy: "auto"
   log_every_n_steps: 5

@@ -9,7 +9,7 @@ import time
 import warnings
 from pathlib import Path
 
-import hydra
+# import hydra
 import numpy as np
 import torch
 import wandb
@@ -26,7 +26,7 @@ wandb_logger = None
 
 
 # loads the config file
-@hydra.main(config_path="../experiments", config_name="default")
+# @hydra.main(config_path="../experiments", config_name="default")
 def main(cfg: DictConfig) -> None:
 
     match cfg.log_level:
@@ -172,7 +172,10 @@ if __name__ == "__main__":
     time_start = time.time()
     # errors
     os.environ["HYDRA_FULL_ERROR"] = "1"  # Produce a complete stack trace
-    main()
+    from omegaconf import OmegaConf
+    cfg = OmegaConf.load("C:/Users/pio-r/OneDrive/Documenti/Desktop/PhD_v2/internship_polAI/nvae_sdofm/experiments/pretrain_nvae.yaml")
+    main(cfg)
+    # main()
     print(
         "\nTotal duration: {}".format(
             utils.days_hours_mins_secs_str(time.time() - time_start)
